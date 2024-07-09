@@ -1,0 +1,250 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+
+.direct a {
+  text-decoration: none; /* Varsayılan olarak altı çizili olmaması için */
+  color: #000;
+  position: relative; /* Pseudo-element için konumlandırma */
+  transition: color 0.3s ease; /* Geçiş efektini ekleyin */
+}
+
+.direct a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px; /* Alt çizgi kalınlığı */
+  bottom: 0;
+  left: 0;
+  background-color: #007bff; /* Alt çizgi rengi */
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.direct a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
+
+.logo a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff7a00;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  position: relative;
+}
+
+.navItem {
+  position: relative;
+}
+
+.nav a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.icons {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+}
+
+.icons a img {
+  width: 24px;
+  height: 24px;
+}
+
+.menuToggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.closeButton {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.dropdown {
+  position: fixed;
+  top: 48px; /* Adjust this to match the height of your header */
+  left: 0;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1200;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 4px 4px; /* Only bottom corners rounded */
+  width: 100%; /* Make dropdown as wide as the header */
+}
+
+
+
+
+.dropdownItemCustom img{
+  width: 150px;
+  position: absolute;
+  top: 75px;
+  right: 400px;
+  
+}
+
+
+
+.dropdownItem img, .dropdownItemCustom img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.dropdownTitle {
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-left: 150px;
+}
+
+.dropdownContent {
+  margin-left: 150px;
+  display: flex;
+  flex-direction: row; /* Ensure items are in a row */
+  flex-wrap: wrap; /* Allow items to wrap to the next line if they exceed the width */
+  gap: 20px; /* Adjust the gap between items as needed */
+}
+
+.dropdownItem {
+  display: flex;
+  flex-direction: column;
+
+  left: 200px;
+  margin: 10px;
+  align-items: center;
+  text-align: center;
+  width: 120px; /* Adjust the width of each item as needed */
+}
+.dropdownText{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dropdownItem img {
+  
+  width: 135px; /* Adjust the size as needed */
+  height: 80px;
+  margin-bottom: 10px;
+  
+
+}
+
+.dropdownContent a {
+  color: #333;
+  text-decoration: none;
+  padding: 5px 0;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdownContent a:hover {
+  background-color: #f0f0f0;
+}
+
+
+.dropdownContent button{
+ margin-left: 30px;
+ width: fit-content;
+ height: fit-content;
+ border: none;
+ margin-top: 5px;
+background-color: #f8f8f8;
+}
+.dropdownItem button img{
+width: 10px; 
+height: 10px; 
+margin-top: 5px;
+}
+
+.dropdownCustomText{
+
+   display: flex;
+   background-color: #f8f8f8;
+   flex-direction: row;
+    margin-top: 100px;
+    margin-left: 40px;
+  
+}
+.dropdownCustomText button{
+  background-color: #f8f8f8;
+  width: 20px;
+  height: 20px;
+
+}
+.dropdownItemCustom button img{
+  width: 10px; 
+height: 10px; 
+margin-top: 347px;
+margin-right: -45px;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none; /* Hide nav by default on small screens */
+    gap: 20px;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: fit-content;
+    height: 100%;
+    background-color: #f9f5f2;
+    flex-direction: column;
+    align-items: start;
+    padding: 20px;
+    transition: right 0.3s ease;
+    z-index: 1100;
+  }
+
+  .nav.active {
+    right: 0;
+    display: flex; /* Show nav when active */
+  }
+
+  .menuToggle {
+    display: block;
+  }
+
+  .closeButton {
+    display: block;
+  }
+  .icons{
+    justify-content: space-between;
+
+    margin-left: 20px;
+  }
+
+ 
+}
